@@ -5,10 +5,10 @@ import (
 	"errors"
 	go_grpc "github.com/anujaneja/go_grpc/pb"
 	"github.com/google/uuid"
+	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	"log"
-	"time"
 )
 
 type LaptopService struct {
@@ -46,7 +46,7 @@ func (service *LaptopService) CreateLaptop(
 	/**
 	Code for putting a sleep to check for timeout...
 	*/
-	time.Sleep(6 * time.Second)
+	//time.Sleep(6 * time.Second)
 	if errors.Is(ctx.Err(), context.Canceled) {
 		log.Printf("request is cancelled for laptop id %v", laptop.Id)
 		return nil, status.Errorf(codes.Canceled, "context canceled")
@@ -71,4 +71,31 @@ func (service *LaptopService) CreateLaptop(
 	}
 
 	return res, nil
+}
+
+func (service *LaptopService) SearchLaptop(req *go_grpc.SearchLaptopRequest, stream grpc.ServerStreamingServer[go_grpc.SearchLaptopResponse]) error {
+	filter := req.GetFilter()
+	log.Printf("searching for laptop with filter %v", filter)
+	err := service.Store.Search(
+		stream.Context(),
+		filter,
+		func(laptop *go_grpc.Laptop) error {
+
+			res := &go_grpc.SearchLaptopResponse{
+				Laptop: laptop,
+			}
+			err := stream.Send(res)
+			if err != nil {
+				return err
+			}
+			log.Printf("Sending laptop with id %v", laptop.Id)
+			return nil
+		},
+	)
+
+	if err != nil {
+		return status.Errorf(codes.Internal, "could not search laptop with filter %v", filter)
+	}
+
+	return nil
 }

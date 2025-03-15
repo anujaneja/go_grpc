@@ -1,27 +1,27 @@
 {
-  "id": "46198324-a154-4dda-80e9-9aa21e8baa46",
-  "brand": "Dell",
-  "name": "XPS",
+  "id": "1a5f6e65-cef8-4966-a157-25440453f547",
+  "brand": "Lenovo",
+  "name": "Thinkpad Xi",
   "cpu": {
-    "brand": "AMD",
-    "name": "Ryzen 7 8700G.",
-    "number_cores": 7,
-    "number_threads": 16,
-    "min_ghz": 2.8689890700908736,
-    "max_ghz": 3.115721932219925
+    "brand": "Intel",
+    "name": "2.16.1 Celeron (Sandy Bridge/Ivy Bridge microarchitecture)",
+    "number_cores": 5,
+    "number_threads": 15,
+    "min_ghz": 2.231372373200993,
+    "max_ghz": 2.2371333056269087
   },
   "memory": {
-    "value": "58",
+    "value": "41",
     "unit": "GIGABYTE"
   },
   "gpus": [
     {
-      "brand": "AMD",
-      "name": "Radeon RX 7900 XTX",
-      "min_ghz": 1.191592323743599,
-      "max_ghz": 1.982666716103519,
+      "brand": "NVIDIA",
+      "name": "GeForce RTX 4090",
+      "min_ghz": 1.1580188412860657,
+      "max_ghz": 1.8037239707359423,
       "memory": {
-        "value": "3",
+        "value": "6",
         "unit": "GIGABYTE"
       }
     }
@@ -30,32 +30,32 @@
     {
       "driver": "SSD",
       "memory": {
-        "value": "759",
+        "value": "757",
         "unit": "GIGABYTE"
       }
     },
     {
       "driver": "HDD",
       "memory": {
-        "value": "301",
+        "value": "746",
         "unit": "GIGABYTE"
       }
     }
   ],
   "screen": {
-    "size_inch": 14.26096,
+    "size_inch": 14.2494955,
     "resolution": {
-      "width": 7004,
-      "height": 3940
+      "width": 4039,
+      "height": 2272
     },
-    "panel": "OLED",
-    "multitouch": true
+    "panel": "IPS",
+    "multitouch": false
   },
   "keyboard": {
-    "layout": "QWERTZ",
-    "backlit": true
+    "layout": "AZERTY",
+    "backlit": false
   },
-  "weight_kg": 1.4657901104140945,
-  "price_usd": 2978.4947588161235,
-  "release_year": 2020.939253386368
+  "weight_kg": 2.033876253200568,
+  "price_usd": 1846.2545206281156,
+  "release_year": 2023.737655612285
 }
